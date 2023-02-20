@@ -3,17 +3,17 @@
  * */
 const isEmptyCheck = (str) => {
     let returnVal = true;
-    if (str !== null && str !== "" && typeof str !== 'undefined') {
+    if (str !== null && str !== '' && typeof str !== 'undefined') {
         returnVal = false;
     }
     return returnVal;
 }
 
 /**
- * 값이 null, 빈값 undefined 인경우 ""를 반환한다.
+ * 값이 null, 빈값 undefined 인경우 ''를 반환한다.
  * */
 const isEmptyValue = (str) => {
-    let returnVal = "";
+    let returnVal = '';
     if (str !== null && typeof str !== 'undefined') {
         returnVal = str;
     }
@@ -24,9 +24,9 @@ const isEmptyValue = (str) => {
  * 문자열을 3자리마다 콤마를 찍어서 반환한다.
  */
 String.prototype.commaStr = () => {
-    let num = this.replace(/,/g, "");
+    let num = this.replace(/,/g, '');
     while((/(-?[0-9]+)([0-9]{3})/).test(num)) {
-        num = num.replace((/(-?[0-9]+)([0-9]{3})/), "$1,$2");
+        num = num.replace((/(-?[0-9]+)([0-9]{3})/), '$1,$2');
     }
     return num;
 }
