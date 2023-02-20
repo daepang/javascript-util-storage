@@ -91,3 +91,42 @@ const dateFunction = {
         return returnVal;
     },
 };
+
+/**
+ * 시간 표시(시간차이 숫자를 HH:mm:SS 형태로 표시
+ * */
+function printDiffTime(time) {
+    var hours = time / 3600;
+    if (0 <= hours && hours < 10) {
+        hours = "0" + Math.floor(hours);
+    } else if (hours < 0 || isNaN(hours)) {
+        hours = "00";
+    } else {
+        hours = Math.floor(hours);
+    }
+    var minutes = (time % 3600) / 60;
+    if (0 <= minutes && minutes < 10) {
+        minutes = "0" + Math.floor(minutes);
+    } else if (minutes < 0 || isNaN(minutes)) {
+        minutes = "00";
+    } else {
+        minutes = Math.floor(minutes);
+    }
+    var seconds = (time % 3600) % 60;
+    if (0 <= seconds && seconds < 10) {
+        seconds = "0" + Math.floor(seconds);
+    } else if (seconds < 0 || isNaN(seconds)) {
+        seconds = "00";
+    } else {
+        seconds = Math.floor(seconds);
+    }
+    var returnVal = "";
+    if (time <= 0) {
+        returnVal = "00:00:00";
+    } else if (hours > 100 || minutes > 60 || seconds > 60) {
+        returnVal = "00:00:00"
+    } else {
+        returnVal = hours + ":" + minutes + ":" + seconds;
+    }
+    return returnVal;
+}
