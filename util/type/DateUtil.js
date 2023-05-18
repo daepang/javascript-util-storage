@@ -130,3 +130,34 @@ function printDiffTime(time) {
     }
     return returnVal;
 }
+
+/**
+ * 오늘 날짜를 YYYYMMDD 형태로 반환
+ * */
+function getTodayDate() {
+    var currentDate = new Date();
+
+    var year = currentDate.getFullYear().toString();
+    var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentDate.getDate().toString().padStart(2, '0');
+
+    var formattedDate = year + month + day;
+    return formattedDate;
+}
+
+/**
+ * agoMonth 전 1일 날짜를 YYYYMMDD 형태로 반환
+ * */
+function getMonthsAgoDate(agoMonth) {
+    if(isNaN(agoMonth)) agoMonth = 0;
+    var currentDate = new Date();
+    currentDate.setMonth(currentDate.getMonth() - agoMonth);
+    currentDate.setDate(1);
+
+    var year = currentDate.getFullYear().toString();
+    var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    var day = currentDate.getDate().toString().padStart(2, '0');
+
+    var formattedDate = year + month + day;
+    return formattedDate;
+}
